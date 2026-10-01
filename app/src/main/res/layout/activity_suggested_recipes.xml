@@ -31,12 +31,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewRecipesTitle" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRecipes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewRecipesDescription" />
     <TextView
         android:id="@+id/textViewNoRecipes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="No recipes can be prepared yet.\nAdd more ingredients to your pantry."
+        android:text="No recipes can be prepared yet.\nAdd every required ingredient in sufficient quantities."
         android:textColor="#616161"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,4 +55,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewRecipesDescription"
         app:layout_constraintVertical_bias="0.45" />
+    <ProgressBar
+        android:id="@+id/progressBarRecipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewRecipesDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>
