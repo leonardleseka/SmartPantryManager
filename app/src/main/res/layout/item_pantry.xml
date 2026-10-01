@@ -39,5 +39,27 @@
             android:text="Expiry date: Not provided"
             android:textColor="#616161"
             android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/buttonEditItem"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Edit"
+                android:textAllCaps="false"
+                app:backgroundTint="#2E7D32" />
+            <Button
+                android:id="@+id/buttonDeleteItem"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:text="Delete"
+                android:textAllCaps="false"
+                app:backgroundTint="#C62828" />
+        </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

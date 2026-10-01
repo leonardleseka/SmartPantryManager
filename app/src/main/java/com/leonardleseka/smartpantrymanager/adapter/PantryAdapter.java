@@ -2,6 +2,7 @@ package com.leonardleseka.smartpantrymanager.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,8 +13,16 @@ import java.util.List;
 import java.util.Locale;
 public class PantryAdapter
         extends RecyclerView.Adapter<PantryAdapter.PantryViewHolder> {
+    public interface PantryItemListener {
+        void onEditClick(PantryItem pantryItem);
+        void onDeleteClick(PantryItem pantryItem);
+    }
     private final List<PantryItem> pantryItems =
             new ArrayList<>();
+    private final PantryItemListener listener;
+    public PantryAdapter(PantryItemListener listener) {
+        this.listener = listener;
+    }
     @NonNull
     @Override
     public PantryViewHolder onCreateViewHolder(
@@ -55,6 +64,12 @@ public class PantryAdapter
                     "Expiry date: " + expiryDate
             );
         }
+        holder.buttonEditItem.setOnClickListener(
+                view -> listener.onEditClick(pantryItem)
+        );
+        holder.buttonDeleteItem.setOnClickListener(
+                view -> listener.onDeleteClick(pantryItem)
+        );
     }
     @Override
     public int getItemCount() {
@@ -88,6 +103,8 @@ public class PantryAdapter
         private final TextView textViewItemName;
         private final TextView textViewItemQuantity;
         private final TextView textViewItemExpiry;
+        private final Button buttonEditItem;
+        private final Button buttonDeleteItem;
         public PantryViewHolder(
                 @NonNull View itemView
         ) {
@@ -100,6 +117,12 @@ public class PantryAdapter
             );
             textViewItemExpiry = itemView.findViewById(
                     R.id.textViewItemExpiry
+            );
+            buttonEditItem = itemView.findViewById(
+                    R.id.buttonEditItem
+            );
+            buttonDeleteItem = itemView.findViewById(
+                    R.id.buttonDeleteItem
             );
         }
     }
